@@ -1,0 +1,73 @@
+# Google Ads MCP Server - Example Configuration
+# Copy this file to config.yaml and customize for your needs
+
+# Authentication settings
+authentication:
+  method: oauth2  # oauth2 or service_account
+  developer_token: ${GOOGLE_ADS_DEVELOPER_TOKEN}  # or set directly
+  client_id: ${GOOGLE_ADS_CLIENT_ID}
+  client_secret: ${GOOGLE_ADS_CLIENT_SECRET}
+  refresh_token: ${GOOGLE_ADS_REFRESH_TOKEN}
+  login_customer_id: null  # Optional MCC account ID (without hyphens)
+
+  # For service account authentication:
+  # method: service_account
+  # service_account_key_file: /path/to/service-account-key.json
+
+# Performance optimization
+performance:
+  cache:
+    enabled: true
+    backend: memory  # memory, redis, or none
+    ttl: 3600  # Cache TTL in seconds (1 hour)
+    redis_url: null  # Only needed if backend is redis (e.g., redis://localhost:6379)
+    max_size: 1000  # Maximum cache size for memory backend
+
+  connection_pool:
+    size: 10
+    timeout: 30  # Connection timeout in seconds
+
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 100
+    burst_size: 10
+
+# Error handling
+error_handling:
+  retry:
+    enabled: true
+    max_attempts: 3
+    backoff: exponential  # exponential or linear
+    initial_delay: 1.0  # Initial delay in seconds
+    max_delay: 60.0  # Maximum delay in seconds
+
+  alerts:
+    enabled: false
+    webhook_url: null  # Webhook URL for alerts
+    email: null  # Email for alerts
+
+  log_errors: true
+
+# Logging configuration
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: text  # text or json
+  file: null  # Log file path (null for no file logging)
+  console: true  # Log to console
+
+# Feature flags
+features:
+  batch_operations: true
+  auto_recommendations: false  # Auto-apply Google's recommendations
+  advanced_reporting: true
+  conversion_tracking: true
+  audience_management: true
+
+# API settings
+api_version: v22
+use_proto_plus: true
+
+# Response settings
+default_page_size: 50
+max_page_size: 100
+character_limit: 25000
