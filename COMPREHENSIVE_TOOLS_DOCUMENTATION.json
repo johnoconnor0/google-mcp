@@ -1,0 +1,344 @@
+{
+  "project": "Google Ads MCP Server",
+  "total_tools": 132,
+  "last_updated": "2025-12-17",
+  "tools_by_category": {
+    "Batch Operations": 11,
+    "Reporting & Analytics": 7,
+    "Insights & Recommendations": 8,
+    "Automation & Optimization": 10,
+    "Audience & Remarketing": 12,
+    "Conversion Tracking": 10,
+    "Ad Extensions": 8,
+    "Shopping Campaigns": 4,
+    "Performance Max": 5,
+    "Local Campaigns": 3,
+    "App Campaigns": 3,
+    "Campaigns": 15,
+    "Ad Groups": 10,
+    "Keywords": 10,
+    "Ads": 8,
+    "Bidding": 8
+  },
+  "tools": [
+    {
+      "name": "google_ads_batch_create_campaigns",
+      "category": "Batch Operations",
+      "description": "Create multiple campaigns in a single batch operation with support for partial failure - some campaigns may succeed while others fail.",
+      "purpose": "Efficiently create multiple campaigns at once instead of one at a time",
+      "when_to_use": "When launching multiple campaigns simultaneously or migrating from another platform",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "campaigns_json",
+          "type": "str (JSON array)",
+          "description": "JSON array of campaign configurations with name, type, status, budget, and bidding settings"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "Formatted markdown report showing total campaigns, succeeded count, failed count, and details of each result"
+      },
+      "example_values": {
+        "campaigns_json": "[{\"name\": \"Campaign 1\", \"budget_amount\": 50.00, \"type\": \"SEARCH\", \"status\": \"PAUSED\"}]"
+      }
+    },
+    {
+      "name": "google_ads_batch_create_ad_groups",
+      "category": "Batch Operations",
+      "description": "Create multiple ad groups in a single batch operation.",
+      "purpose": "Efficiently create multiple ad groups across campaigns",
+      "when_to_use": "When setting up campaign structure or expanding existing campaigns",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "ad_groups_json",
+          "type": "str (JSON array)",
+          "description": "JSON array of ad group configurations with name, campaign_id, status, and cpc_bid"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "Batch operation result with success/failure details for each ad group"
+      },
+      "example_values": {
+        "ad_groups_json": "[{\"name\": \"Ad Group 1\", \"campaign_id\": \"12345678\", \"cpc_bid\": 2.50}]"
+      }
+    },
+    {
+      "name": "google_ads_batch_add_keywords",
+      "category": "Batch Operations",
+      "description": "Add multiple keywords in a single batch operation.",
+      "purpose": "Efficiently add keywords to ad groups in bulk",
+      "when_to_use": "When populating ad groups with keyword lists or importing keywords from research",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "keywords_json",
+          "type": "str (JSON array)",
+          "description": "JSON array of keyword configurations with ad_group_id, text, match_type, and cpc_bid"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "Batch operation result showing successfully added keywords and failures"
+      },
+      "example_values": {
+        "keywords_json": "[{\"ad_group_id\": \"12345678\", \"text\": \"running shoes\", \"match_type\": \"EXACT\", \"cpc_bid\": 1.50}]"
+      }
+    },
+    {
+      "name": "google_ads_batch_create_ads",
+      "category": "Batch Operations",
+      "description": "Create multiple responsive search ads in a single batch operation.",
+      "purpose": "Efficiently create multiple ads across ad groups",
+      "when_to_use": "When scaling ad creative testing or launching new campaigns with multiple ads",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "ads_json",
+          "type": "str (JSON array)",
+          "description": "JSON array of ad configurations with ad_group_id, headlines (3-15), descriptions (2-4), and final_urls"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "Batch operation result with created ad IDs and failures"
+      },
+      "example_values": {
+        "ads_json": "[{\"ad_group_id\": \"12345678\", \"headlines\": [\"H1\", \"H2\", \"H3\"], \"descriptions\": [\"D1\", \"D2\"], \"final_urls\": [\"https://example.com\"]}]"
+      }
+    },
+    {
+      "name": "google_ads_batch_update_budgets",
+      "category": "Batch Operations",
+      "description": "Update budgets for multiple campaigns in a single batch operation.",
+      "purpose": "Efficiently adjust campaign budgets in bulk",
+      "when_to_use": "When rebalancing budgets across campaigns or making seasonal adjustments",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "budget_updates_json",
+          "type": "str (JSON array)",
+          "description": "JSON array with campaign_id and budget_amount for each campaign"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "Table showing updated budgets for each campaign"
+      },
+      "example_values": {
+        "budget_updates_json": "[{\"campaign_id\": \"12345678\", \"budget_amount\": 75.00}]"
+      }
+    },
+    {
+      "name": "google_ads_batch_update_bids",
+      "category": "Batch Operations",
+      "description": "Update CPC bids for multiple keywords or ad groups in a single batch operation.",
+      "purpose": "Efficiently adjust bids across keywords or ad groups",
+      "when_to_use": "When optimizing bids based on performance data or competitive analysis",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "entity_type",
+          "type": "str",
+          "description": "Type of entity: 'keyword' or 'ad_group'"
+        },
+        {
+          "name": "bid_updates_json",
+          "type": "str (JSON array)",
+          "description": "JSON array with entity IDs and new cpc_bid values"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "Table showing updated bids for each entity"
+      },
+      "example_values": {
+        "bid_updates_json": "[{\"ad_group_id\": \"12345678\", \"criterion_id\": \"87654321\", \"cpc_bid\": 2.50}]"
+      }
+    },
+    {
+      "name": "google_ads_batch_pause_campaigns",
+      "category": "Batch Operations",
+      "description": "Pause multiple campaigns in a single batch operation.",
+      "purpose": "Quickly pause multiple campaigns simultaneously",
+      "when_to_use": "When temporarily stopping campaigns for holidays, budget constraints, or testing",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "campaign_ids",
+          "type": "str (comma-separated)",
+          "description": "Comma-separated list of campaign IDs to pause"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "List of successfully paused campaigns"
+      },
+      "example_values": {
+        "campaign_ids": "12345678,87654321,11111111"
+      }
+    },
+    {
+      "name": "google_ads_batch_enable_campaigns",
+      "category": "Batch Operations",
+      "description": "Enable multiple campaigns in a single batch operation.",
+      "purpose": "Quickly activate multiple paused campaigns",
+      "when_to_use": "When resuming campaigns after testing or seasonal pauses",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "campaign_ids",
+          "type": "str (comma-separated)",
+          "description": "Comma-separated list of campaign IDs to enable"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "List of successfully enabled campaigns"
+      },
+      "example_values": {
+        "campaign_ids": "12345678,87654321"
+      }
+    },
+    {
+      "name": "google_ads_batch_status_change",
+      "category": "Batch Operations",
+      "description": "Change status for multiple entities (campaigns, ad groups, keywords, ads) in a single operation.",
+      "purpose": "Bulk status updates across any entity type",
+      "when_to_use": "When managing status across multiple entities of the same type",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "entity_type",
+          "type": "str",
+          "description": "Type of entity: campaign, ad_group, keyword, or ad"
+        },
+        {
+          "name": "status_updates_json",
+          "type": "str (JSON array)",
+          "description": "JSON array with entity_id and status for each entity"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "Table showing updated status for each entity"
+      },
+      "example_values": {
+        "status_updates_json": "[{\"entity_id\": \"12345678\", \"status\": \"ENABLED\"}]"
+      }
+    },
+    {
+      "name": "google_ads_export_to_csv",
+      "category": "Batch Operations",
+      "description": "Export account structure (campaigns, keywords) to CSV format for backup or analysis.",
+      "purpose": "Create CSV exports of account data",
+      "when_to_use": "When backing up account structure or analyzing data in spreadsheets",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "entity_type",
+          "type": "str",
+          "description": "Type to export: campaigns or keywords"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "campaign_id",
+          "type": "str",
+          "default": "None",
+          "description": "Optional campaign ID filter (for keywords export)"
+        }
+      ],
+      "returns": {
+        "type": "str",
+        "description": "CSV formatted data in code block"
+      },
+      "example_values": {
+        "entity_type": "campaigns"
+      }
+    },
+    {
+      "name": "google_ads_import_from_csv",
+      "category": "Batch Operations",
+      "description": "Import entities from CSV format for bulk creation.",
+      "purpose": "Bulk create entities from CSV data",
+      "when_to_use": "When migrating from another platform or restoring from backup",
+      "required_parameters": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "description": "Google Ads customer ID (10 digits, no hyphens)"
+        },
+        {
+          "name": "entity_type",
+          "type": "str",
+          "description": "Type to import: campaigns or keywords"
+        },
+        {
+          "name": "csv_data",
+          "type": "str",
+          "description": "CSV formatted data with header row"
+        }
+      ],
+      "optional_parameters": [],
+      "returns": {
+        "type": "str",
+        "description": "Import result with success/failure details"
+      },
+      "example_values": {
+        "csv_data": "Campaign Name,Budget,Type\\nTest Campaign,50.00,SEARCH"
+      }
+    }
+  ]
+}

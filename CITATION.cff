@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: Google Ads MCP Server
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: O'Connor
+    given-names: John
+    email: open-source@weblifter.com.au
+    website: 'https://github.com/johnoconnor0'
+repository-code: 'https://github.com/johnoconnor0/google-ads-mcp'
+url: 'https://github.com/johnoconnor0/google-ads-mcp'
+abstract: >-
+  A comprehensive Model Context Protocol (MCP) server for Google Ads API
+  integration, enabling AI assistants like Claude, ChatGPT, and Gemini to
+  analyze, manage, and optimize Google Ads campaigns through natural
+  language conversations. The server implements 10 core tools for campaign
+  analysis, keyword optimization, and account management, with a roadmap
+  for 161 additional tools covering the full Google Ads API surface area.
+keywords:
+  - google-ads
+  - mcp
+  - model-context-protocol
+  - claude
+  - chatgpt
+  - gemini
+  - advertising
+  - api-integration
+  - python
+  - campaign-management
+  - marketing-automation
+  - ppc
+license: MIT
+version: 1.0.0
+date-released: '2025-12-17'

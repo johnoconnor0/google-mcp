@@ -1,0 +1,63 @@
+# CODEOWNERS file for google-ads-mcp
+# This file defines individuals or teams responsible for code in this repository.
+# When a pull request changes code with defined owners, those owners are automatically
+# requested for review.
+#
+# Repository: https://github.com/johnoconnor0/google-ads-mcp
+
+# Global owner - all files unless otherwise specified
+* @johnoconnor0
+
+# Core MCP server files
+/google_ads_mcp.py @johnoconnor0
+/google_ads_mcp_v2.py @johnoconnor0
+/generate_refresh_token.py @johnoconnor0
+
+# Infrastructure and manager modules
+/*_manager.py @johnoconnor0
+/auth_manager.py @johnoconnor0
+/config_manager.py @johnoconnor0
+/cache_manager.py @johnoconnor0
+/error_handler.py @johnoconnor0
+/logger.py @johnoconnor0
+/response_handler.py @johnoconnor0
+/query_optimizer.py @johnoconnor0
+
+# Domain-specific managers
+/campaign_manager.py @johnoconnor0
+/ad_group_manager.py @johnoconnor0
+/ad_manager.py @johnoconnor0
+/keyword_manager.py @johnoconnor0
+/bidding_strategy_manager.py @johnoconnor0
+/audience_manager.py @johnoconnor0
+/conversion_manager.py @johnoconnor0
+/automation_manager.py @johnoconnor0
+/batch_operations_manager.py @johnoconnor0
+/extensions_manager.py @johnoconnor0
+/labels_manager.py @johnoconnor0
+/shopping_pmax_manager.py @johnoconnor0
+/local_app_manager.py @johnoconnor0
+/insights_manager.py @johnoconnor0
+/reporting_manager.py @johnoconnor0
+
+# MCP tool registration files
+/mcp_tools_*.py @johnoconnor0
+
+# Configuration files
+/config.yaml @johnoconnor0
+/config.example.yaml @johnoconnor0
+/requirements.txt @johnoconnor0
+
+# Documentation
+/README.md @johnoconnor0
+/documentation/ @johnoconnor0
+/documentation/*.md @johnoconnor0
+/.claude/CLAUDE.md @johnoconnor0
+/.claude/claude_project.json @johnoconnor0
+
+# Repository governance files
+/SECURITY.md @johnoconnor0
+/CONTRIBUTING.md @johnoconnor0
+/LICENSE @johnoconnor0
+/CITATION.cff @johnoconnor0
+/CODEOWNERS @johnoconnor0
