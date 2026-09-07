@@ -273,7 +273,7 @@ For security-related questions or concerns:
 <!-- VIRUSTOTAL-AUDIT:START -->
 ## VirusTotal Audit
 
-Last updated: 2026-08-31T19:46:18.579Z
+Last updated: 2026-09-07T18:31:02.781Z
 
 | File | SHA256 | Status | Link |
 | --- | --- | --- | --- |
@@ -281,7 +281,7 @@ Last updated: 2026-08-31T19:46:18.579Z
 | requirements.txt | 24c0308c461410ea39a52a386ff5d6c7349ed457868f3dca41e51b4cd95f3f25 | Not present in VirusTotal | n/a |
 | pyproject.toml | 37a2810ca7c73db197b1e3c5f773b248906ce0670dbce3052e4fab3cbcacfadd | Not present in VirusTotal | n/a |
 | README.md | c0ec7cdc3dd83fab42d3061900584e3f34255581149696740c77540f86bdd83d | Not present in VirusTotal | n/a |
-| SECURITY.md | d0c82907336e7ad176d0c17a76ead319e8589a5e1fcf77bc7c5cfd164705b84a | Not present in VirusTotal | n/a |
+| SECURITY.md | 0d4ad264bfdf4554f3f469cc1a11db09a6a24b110285a43d9f32791e0b4786ff | Not present in VirusTotal | n/a |
 | .github/workflows/ci.yml | 7e3952f3b263406bd66176a5a1df2299e332edafd3c02d54009568a4af05aa62 | Not present in VirusTotal | n/a |
 | .github/workflows/secret-scan.yml | 81ca73fbfc638997d69d914a6f9a6cfbba811763b0623c2899d80d555c3ad58d | Not present in VirusTotal | n/a |
 | .github/workflows/release-check.yml | a1f9bd662da69b04a211871854b99f37b94972351f25e07c8749861c725856f4 | Not present in VirusTotal | n/a |
